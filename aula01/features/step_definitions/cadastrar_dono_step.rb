@@ -1,3 +1,5 @@
+require 'faker'
+
 Dado("abra o cadastro de donos") do
     click_on '--- Inserir Dono'
 end
@@ -5,8 +7,8 @@ end
 Quando("eu insiro todos os dados do dono do animalzinho") do
     
     within('#formulario') do
-        fill_in :nome, with: 'Ner, o Bardo'
-        fill_in :email, with: 'bernardo@gmail.com'
+        fill_in :nome, with: Faker::Name.name
+        fill_in :email, with: Faker::Internet.email
         choose :masc
         fill_in :cidade, with: 'Tão tão distante'
         fill_in :observacoes, with: 'Bora bora capybara'
